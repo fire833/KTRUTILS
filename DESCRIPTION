@@ -1,0 +1,7 @@
+Package: ktrutils
+Type: Package
+Title: KT Statistics R Utilities
+Description: Some useful R utilities.
+License: GPL
+Author: Kendall Tauser
+Maintainer: Kendall Tauser <kttpsy@gmail.com>
