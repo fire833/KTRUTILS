@@ -2,6 +2,10 @@ Package: ktrutils
 Type: Package
 Title: KT Statistics R Utilities
 Description: Some useful R utilities.
-License: GPL
 Author: Kendall Tauser
 Maintainer: Kendall Tauser <kttpsy@gmail.com>
+Version: 0.1.0
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.0
