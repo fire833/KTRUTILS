@@ -26,3 +26,15 @@
 getz <- function(vector) {
     (vector - mean(vector)) / stats::sd(vector)
 }
+
+#' @param vector provide the vector you wish to get the variance from
+#'
+#' @title Get the variance for a vector of quantitative data.
+#' @return The variance of a dataset
+#' @export
+#' 
+#' @examples 
+#' s_squared <- getvariance(c(1,2,3,4,5))
+getvariance <- function(vector) {
+    sum((vector - mean(vector))^2 / length(vector) - 1)
+}
