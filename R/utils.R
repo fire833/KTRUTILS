@@ -23,7 +23,7 @@
 #' @examples
 #' z <- get_z(c(1, 2, 3, 4, 5))
 get_z <- function(vector) {
-    (vector - mean(vector)) / stats::sd(vector)
+  (vector - mean(vector)) / stats::sd(vector)
 }
 
 #' @param vector provide the vector you wish to get the variance from
@@ -35,7 +35,7 @@ get_z <- function(vector) {
 #' @examples
 #' s_squared <- get_variance(c(1, 2, 3, 4, 5))
 get_variance <- function(vector) {
-    sum((vector - mean(vector))^2 / length(vector) - 1)
+  sum((vector - mean(vector))^2 / length(vector) - 1)
 }
 
 #' @param y provide the vector of actual values you are wishing
