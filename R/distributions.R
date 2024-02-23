@@ -88,3 +88,9 @@ hyper_sim <- function(iter = 100, N = 20, r = 12, n = 5) {
   print(successes_table / iter)
   print(successes_table)
 }
+
+# ptauser <- function(y) {
+#   if (y < 0) return (0)
+#   if (0 <= y <= 2) return ((1/8)*y^3)
+#   if (y > 2) return (0)
+# }
