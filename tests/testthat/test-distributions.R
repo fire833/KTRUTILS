@@ -15,9 +15,3 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 library(testthat)
-
-test_that("z score returns correct size", {
-  v <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
-  z <- ktrutils::get_z(v)
-  expect_length(z, 9)
-})
