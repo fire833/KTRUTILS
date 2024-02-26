@@ -102,6 +102,7 @@ hyper_sim <- function(iter = 100, N = 20, r = 12, n = 5) {
 #' get_norm_curve(mu = 5, sigma = 3)
 #' get_norm_curve(mu = 10, sigma = 5)
 get_norm_curve <- function(mu = 0, sigma = 10) {
+  x <- NULL
   graphics::curve(stats::dnorm(x, mean = mu, sd = sigma),
     xlim = c(mu - 3 * sigma, mu + 3 * sigma),
     ylab = "Distribution"
