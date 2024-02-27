@@ -90,8 +90,10 @@ hyper_sim <- function(iter = 100, N = 20, r = 12, n = 5) {
 }
 
 #' @param mu provide the mean of the standard distribution you wish to model.
-#' @param sigma provide the standard deviation of the distribution you wish 
+#' @param sigma provide the standard deviation of the distribution you wish
 #' to model.
+#' @param val provide the upper quantile you wish to to predict and find
+#' the area of.
 #'
 #' @title Plots a normal curve distribution
 #' @return nothing, just print out a barplot and the resulting tables of
@@ -99,13 +101,16 @@ hyper_sim <- function(iter = 100, N = 20, r = 12, n = 5) {
 #' @export
 #'
 #' @examples
-#' get_norm_curve(mu = 5, sigma = 3)
-#' get_norm_curve(mu = 10, sigma = 5)
-get_norm_curve <- function(mu = 0, sigma = 10) {
+#' get_norm_curve(mu = 5, sigma = 3, 2)
+#' get_norm_curve(mu = 10, sigma = 5, 9)
+get_norm_curve <- function(mu = 0, sigma = 10, val) {
   x <- NULL
+  x1 <- seq(-100, val, length = 1000)
+  y1 <- stats::dnorm(x1, mean = mu, sd = sigma)
   graphics::curve(stats::dnorm(x, mean = mu, sd = sigma),
     xlim = c(mu - 3 * sigma, mu + 3 * sigma),
     ylab = "Distribution"
   )
-  list(mu = mu, sigma = sigma)
+  graphics::polygon(c(-100, x1, val), c(0, y1, 0), col = "Red")
+  list(mu = mu, sigma = sigma, area = stats::pnorm(val, mu, sigma))
 }

@@ -16,8 +16,9 @@
 
 library(testthat)
 
-test_that("z score returns correct size", {
-  v <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+test_that("z score returns correct size and values", {
+  v <- c(1, 2, 5, 5, 3)
   z <- ktrutils::get_z(v)
-  expect_length(z, 9)
+  expect_length(z, 5)
+  expect_equal(z, c(-1.2298374, -0.6708204, 1.0062306, 1.0062306, -0.1118034))
 })

@@ -4,13 +4,16 @@
 \alias{get_norm_curve}
 \title{Plots a normal curve distribution}
 \usage{
-get_norm_curve(mu = 0, sigma = 10)
+get_norm_curve(mu = 0, sigma = 10, val)
 }
 \arguments{
 \item{mu}{provide the mean of the standard distribution you wish to model.}
 
 \item{sigma}{provide the standard deviation of the distribution you wish
 to model.}
+
+\item{val}{provide the upper quantile you wish to to predict and find
+the area of.}
 }
 \value{
 nothing, just print out a barplot and the resulting tables of
@@ -20,6 +23,6 @@ the simulation.
 Plots a normal curve distribution
 }
 \examples{
-get_norm_curve(mu = 5, sigma = 3)
-get_norm_curve(mu = 10, sigma = 5)
+get_norm_curve(mu = 5, sigma = 3, 2)
+get_norm_curve(mu = 10, sigma = 5, 9)
 }
