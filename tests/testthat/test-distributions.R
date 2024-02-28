@@ -40,3 +40,23 @@ test_that("get_norm_curve is correct 5", {
   vals <- get_norm_curve(7, 7, val = 10)
   expect_equal(vals, list(mu = 7, sigma = 7, area = pnorm(10, 7, 7)))
 })
+
+test_that("get_norm_curve is correct 6", {
+  vals <- get_norm_curve(3, 4, val = 3)
+  expect_equal(vals, list(mu = 3, sigma = 4, area = pnorm(3, 3, 4)))
+})
+
+test_that("get_norm_curve is correct 7", {
+  vals <- get_norm_curve(5, 4, val = 6)
+  expect_equal(vals, list(mu = 5, sigma = 4, area = pnorm(6, 5, 4)))
+})
+
+test_that("get_norm_curve is correct 8", {
+  vals <- get_norm_curve(10, 10, val = 6)
+  expect_equal(vals, list(mu = 10, sigma = 10, area = pnorm(6, 10, 10)))
+})
+
+test_that("get_norm_curve is correct 9", {
+  vals <- get_norm_curve(0, 1, val = 2)
+  expect_equal(vals, list(mu = 0, sigma = 1, area = pnorm(2, 0, 1)))
+})
