@@ -135,3 +135,18 @@ get_bayes_testing <- function(u, tu, tubar) {
   ubar <- 1 - u
   return((u * tu) / ((u * tu) + (ubar * tubar)))
 }
+
+#' @param a The probability of event A happening.
+#' @param b The probability of event B happening.
+#' @param ba The probability of event B given event A.
+#' 
+#' @title Returns the probability of event A given B with Baye's
+#' rule.
+#' @return A given B.
+#' @export
+#' 
+#' @examples
+#' p <- get_bayes(0.75, 0.6, 0.25)
+get_bayes <- function(a, b, ba) {
+  return((ba * a) / b)
+}
