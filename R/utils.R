@@ -119,7 +119,7 @@ get_table_with_margins <- function(x, y) {
 #' @param tu The probability someone tests positive
 #' given they are a user. More specifically, what is the
 #' probability for a true positive.
-#' @param tubar The probability somenoe tests positive given
+#' @param tubar The probability someone tests positive given
 #' that they aren't a user. More specifically, what is the
 #' probability someone gets a false positive when they aren't
 #' a user.
