@@ -150,3 +150,18 @@ get_bayes_testing <- function(u, tu, tubar) {
 get_bayes <- function(a, b, ba) {
   return((ba * a) / b)
 }
+
+#' @param nset The number of elements within the set.
+#' @param n The number of elements you want to take out
+#' of the set in a distinct ordering.
+#'
+#' @title Execute the permutations rule with a set of nset
+#' elements, and removal or n elements in distinct ordering.
+#' @return Permutations of nset / n.
+#' @export
+#'
+#' @examples
+#' p <- get_permutations(30, 10)
+get_permutations <- function(nset, n) {
+  return(factorial(nset) / factorial(nset - n))
+}
