@@ -13,7 +13,7 @@ get_bayes_testing(u, tu, tubar)
 given they are a user. More specifically, what is the
 probability for a true positive.}
 
-\item{tubar}{The probability somenoe tests positive given
+\item{tubar}{The probability someone tests positive given
 that they aren't a user. More specifically, what is the
 probability someone gets a false positive when they aren't
 a user.}
