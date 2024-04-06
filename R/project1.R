@@ -23,12 +23,7 @@
 #' actually showing up. Utilizes a discrete binomial distribution under
 #' the hood.
 #' @return list of solution, N, gamma, and p
-#' @export
-#'
-#' @examples
-#' ntickets_discrete()
-#' ntickets_discrete(n = 400)
-ntickets_discrete <- function(n = 200, gamma = 0.02, p = 0.95) {
+ntickets_discrete <- function(n, gamma, p) {
   obj <- function(x) {
     return(1 - gamma - stats::pbinom(n, x, p))
   }
@@ -40,7 +35,7 @@ ntickets_discrete <- function(n = 200, gamma = 0.02, p = 0.95) {
   plot(dep ~ ind,
     type = "b", pch = 20,
     bg = "blue", ylim = c(0, 1),
-    ylab = "Objective", xlab = "x",
+    ylab = "Objective", xlab = "n",
     main = sprintf("Objective v. N Optimal Tickets to Sell
 (%d) gamma = %.2f N = %d Discrete", sol, gamma, n)
   )
@@ -57,12 +52,7 @@ ntickets_discrete <- function(n = 200, gamma = 0.02, p = 0.95) {
 #' actually showing up. Utilizes a continuous normal distribution approximation
 #' under the hood.
 #' @return list of solution, N, gamma, and p
-#' @export
-#'
-#' @examples
-#' ntickets_continuous()
-#' ntickets_continuous(n = 400)
-ntickets_continuous <- function(n = 200, gamma = 0.02, p = 0.95) {
+ntickets_continuous <- function(n, gamma, p) {
   q <- 1 - p
   obj <- function(x) {
     return(1 - gamma - stats::pnorm(n + 0.5, x * p, sqrt(x * p * q)))
@@ -74,4 +64,27 @@ ntickets_continuous <- function(n = 200, gamma = 0.02, p = 0.95) {
 (%.4f) gamma = %.2f N = %d Continuous", sol$root, gamma, n))
   graphics::abline(v = sol, h = 0, col = "red")
   return(list(n = sol$root, N = n, gamma = gamma, p = p))
+}
+
+#' @param n provide the number of seats available on a flight.
+#' @param gamma provide the probability of overbooking a flight.
+#' @param p provide the probability of someone showing up for a flight.
+#'
+#' @title Predict number of tickets to sell for a flight
+#' @description Predict the number of tickets you are able to sell given the
+#' number of seats available and the probability of overbooking/someone
+#' actually showing up. Utilizes both binomial and continuous normal
+#' distributions for predicting natural and real numbers for the
+#' number of tickets to sell.
+#' @return list of solution, N, gamma, and p
+#' @export
+#'
+#' @examples
+#' ntickets()
+#' ntickets(n = 400)
+ntickets <- function(n = 200, gamma = 0.02, p = 0.95) {
+  graphics::layout(matrix(1:2, nrow = 2, ncol = 1, byrow = TRUE))
+  disc <- ntickets_discrete(n, gamma, p)
+  cts <- ntickets_continuous(n, gamma, p)
+  return(list(nd = disc$n, nc = cts$n, N = n, gamma = gamma, p = p))
 }

@@ -7,7 +7,7 @@ number of seats available and the probability of overbooking/someone
 actually showing up. Utilizes a discrete binomial distribution under
 the hood.}
 \usage{
-ntickets_discrete(n = 200, gamma = 0.02, p = 0.95)
+ntickets_discrete(n, gamma, p)
 }
 \arguments{
 \item{n}{provide the number of seats available on a flight.}
@@ -24,8 +24,4 @@ Predict the number of tickets you are able to sell given the
 number of seats available and the probability of overbooking/someone
 actually showing up. Utilizes a discrete binomial distribution under
 the hood.
-}
-\examples{
-ntickets_discrete()
-ntickets_discrete(n = 400)
 }
