@@ -4,14 +4,17 @@
 \alias{max_likelihood_g2}
 \title{Create a maximum likelihood simulation}
 \usage{
-max_likelihood_g2(theta1, theta2, lfun)
+max_likelihood_g2(theta1, theta2, lfun, ...)
 }
 \arguments{
 \item{theta1}{provide the vector of theta1 values to find max from.}
 
 \item{theta2}{provide the vector of theta2 values to find max from.}
 
-\item{lfun}{provide the function to}
+\item{lfun}{provide the function to get max likelihood based on
+parameters.}
+
+\item{...}{provide additional arguments to contour}
 }
 \value{
 a plot to the current device, and the estimation for theta1
@@ -22,6 +25,6 @@ Used for a maximum likelihood simulation optimization
 for two variables given a particular likelihood function.
 }
 \examples{
-demofunc <- function(theta1, theta2) log(dbinom(10, 20, theta1)*dpois(5, theta2))
+demofunc <- function(theta1, theta2) log(dbinom(10, 20, theta1) * dpois(5, theta2))
 max_likelihood_g2(seq(0, 1, length = 1000), seq(0, 1, length = 1000), lfun = demofunc)
 }

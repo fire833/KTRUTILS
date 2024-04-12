@@ -21,20 +21,19 @@
 #' @param ... provide additional arguments to contour
 #'
 #' @title Create a maximum likelihood simulation
-#' @description Used for a maximum likelihood simulation optimization 
+#' @description Used for a maximum likelihood simulation optimization
 #' for two variables given a particular likelihood function.
 #' @return a plot to the current device, and the estimation for theta1
 #' and theta2.
 #' @export
 #'
 #' @examples
-#' demofunc <- function(theta1, theta2) log(dbinom(10, 20, theta1)*dpois(5, theta2))
+#' demofunc <- function(theta1, theta2) log(dbinom(10, 20, theta1) * dpois(5, theta2))
 #' max_likelihood_g2(seq(0, 1, length = 1000), seq(0, 1, length = 1000), lfun = demofunc)
 max_likelihood_g2 <- function(theta1, theta2, lfun, ...) {
-    n1 <- length(theta1)
-    n2 <- length(theta2)
     z <- outer(theta1, theta2, lfun)
-    graphics::contour(theta1, theta2, exp(z), levels = 25, ...) # exp(z) gives the lik
+    # exp(z) gives the lik
+    graphics::contour(theta1, theta2, exp(z), nlevels = 25, ...)
     maxl <- max(exp(z)) # max lik
     coord <- which(exp(z) == maxl, arr.ind = TRUE) # find the co-ords of the max
     th1est <- theta1[coord[1]] # mxlik estimate of theta1
