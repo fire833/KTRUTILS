@@ -16,7 +16,9 @@
 
 #' @param theta1 provide the vector of theta1 values to find max from.
 #' @param theta2 provide the vector of theta2 values to find max from.
-#' @param lfun provide the function to 
+#' @param lfun provide the function to get max likelihood based on
+#' parameters.
+#' @param ... provide additional arguments to contour
 #'
 #' @title Create a maximum likelihood simulation
 #' @description Used for a maximum likelihood simulation optimization 
@@ -28,11 +30,11 @@
 #' @examples
 #' demofunc <- function(theta1, theta2) log(dbinom(10, 20, theta1)*dpois(5, theta2))
 #' max_likelihood_g2(seq(0, 1, length = 1000), seq(0, 1, length = 1000), lfun = demofunc)
-max_likelihood_g2 <- function(theta1, theta2, lfun) {
+max_likelihood_g2 <- function(theta1, theta2, lfun, ...) {
     n1 <- length(theta1)
     n2 <- length(theta2)
     z <- outer(theta1, theta2, lfun)
-    graphics::contour(theta1, theta2, exp(z)) # exp(z) gives the lik
+    graphics::contour(theta1, theta2, exp(z), levels = 25, ...) # exp(z) gives the lik
     maxl <- max(exp(z)) # max lik
     coord <- which(exp(z) == maxl, arr.ind = TRUE) # find the co-ords of the max
     th1est <- theta1[coord[1]] # mxlik estimate of theta1
