@@ -23,7 +23,9 @@ The probability someone is a user given they test
 positive.
 }
 \description{
-Run Baye's testing theorem on given probabilities.
+Here is the Baye's testing formula that is utilized
+by this method:
+(u * tu) / ((u * tu) + ((1 - u) * tubar))
 }
 \examples{
 pct <- get_bayes_testing(3, 95, 30)

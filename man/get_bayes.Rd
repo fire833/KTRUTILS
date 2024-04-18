@@ -18,8 +18,9 @@ get_bayes(a, b, ba)
 A given B.
 }
 \description{
-Returns the probability of event A given B with Baye's
-rule.
+Returns computation of Baye's rule. Bayes rule is the
+following:
+(ba * a) / b
 }
 \examples{
 p <- get_bayes(0.75, 0.6, 0.25)

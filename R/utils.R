@@ -125,6 +125,9 @@ get_table_with_margins <- function(x, y) {
 #' a user.
 #'
 #' @title Run Baye's testing theorem on given probabilities.
+#' @description Here is the Baye's testing formula that is utilized
+#' by this method:
+#' (u * tu) / ((u * tu) + ((1 - u) * tubar))
 #' @return The probability someone is a user given they test
 #' positive.
 #' @export
@@ -142,6 +145,9 @@ get_bayes_testing <- function(u, tu, tubar) {
 #'
 #' @title Returns the probability of event A given B with Baye's
 #' rule.
+#' @description Returns computation of Baye's rule. Bayes rule is the
+#' following:
+#' (ba * a) / b
 #' @return A given B.
 #' @export
 #'
@@ -157,6 +163,9 @@ get_bayes <- function(a, b, ba) {
 #'
 #' @title Execute the permutations rule with a set of nset
 #' elements, and removal or n elements in distinct ordering.
+#' @description Returns the number of permutations given two numbers.
+#' Function implements the following calculation:
+#' nset! / (nset - n)!
 #' @return Permutations of nset / n.
 #' @export
 #'
@@ -164,4 +173,26 @@ get_bayes <- function(a, b, ba) {
 #' p <- get_permutations(30, 10)
 get_permutations <- function(nset, n) {
   return(factorial(nset) / factorial(nset - n))
+}
+
+#' @param x Vector of input data to compute statistic on.
+#' @param mu The actual mean of the population.
+#' of the set in a distinct ordering.
+#'
+#' @title Execute the permutations rule with a set of nset
+#' elements, and removal or n elements in distinct ordering.
+#' @description Returns the number of permutations given two numbers.
+#' Function implements the following calculation:
+#' nset! / (nset - n)!
+#' @return Permutations of nset / n.
+#' @export
+#'
+#' @examples
+#' p <- get_permutations(30, 10)
+get_t_statistic <- function(x, mu) {
+  return((mean(x) - mu) / (stats::var(x) / sqrt(length(x))))
+}
+
+get_chisq_statistic <- function(x, var) {
+
 }
