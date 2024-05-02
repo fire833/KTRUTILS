@@ -1,0 +1,51 @@
+---
+title: KTRUTILS Package
+author: Kendall Tauser
+date: May 2nd, 2024
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{thing}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+# What is this?
+
+What are KTRUTILS? This is a set of R utilities that I am originally creating for Applied Statistical Methods in Spring of 2024. But, hopefully this library can have a variety of useful statistical things that I can use in the future.
+
+## Installation
+
+You can install this package (although I am not sure why you would want to) via devtools directly, or pick your git install method of choice beyond this.
+
+```{r}
+# devtools::install_github("fire833/KTRUTILS")
+```
+
+# Examples of functions
+
+```{r}
+set.seed(30000)
+library(ktrutils)
+
+get_z(rnorm(50, 20, 5))
+
+get_mss(rnorm(50, 20, 5), 20)
+
+get_table_with_margins(c(3, 4, 5, 6), c(1, 2, 3, 4))
+
+get_permutations(30, 5)
+```
+
+# View of loaded dataset
+
+```{r}
+data(fire)
+head(fire)
+```
